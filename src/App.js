@@ -42,7 +42,7 @@ class App extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to = '/downloads'/ >
+            return <Redirect to = '/downloads'/>
         }
     }
 
@@ -56,86 +56,86 @@ class App extends Component {
             }).then(result => {
                 console.log('result', result);
             });
-            Tesseract
-                .recognize(uploads[0])
-                .catch(err => { console.error(err) })
-                .then(result => {
-                    // Get Confidence score 
-                    let confidence = result.confidence
-                        // Get full output 
-                    let text = result.text
-                        // Get codes 
+        Tesseract
+            .recognize(uploads[0])
+            .catch(err => { console.error(err) })
+            .then(result => {
+                // Get Confidence score 
+                let confidence = result.confidence
+                    // Get full output 
+                let text = result.text
+                let pdfText = result.pdf
+                    // Get codes 
                     // Update state 
-                    this.setState({
-                        documents: this.state.documents.concat({
-                            text: text,
-                            confidence: confidence
-                        })
+                this.setState({
+                    documents: this.state.documents.concat({
+                        text: text,
+                        confidence: confidence
                     })
                 })
+            })
 
 
     }
     render() {
-        return ( 
-            
-            <div className = "app" >
-                <header className = "header" >
-                    <h1 > NWU - IMAGE-TEXT(Tswelelo Marule) </h1>
-                </header>
 
-            { /*This will take place when the user uploads a picture*/ } 
+        return (
+
+            < div className = "app" >
+            <header className = "header" >
+                <h1 > NWU - IMAGE - TEXT(Tswelelo Marule) </h1> 
+            </header >
+
+            { /*This will take place when the user uploads a picture*/ }
 
 
             <section className = "hero" >
-            <label className = "fileUploaderContainer" >
-                Click here to upload documents 
-                <input type ="file" id ="fileUploader" onChange={this.handleChange} multiple />
-            </label>
+                <label className = "fileUploaderContainer" >
+                Click here to upload documents
+                <input type = "file" id = "fileUploader" onChange = { this.handleChange }multiple / >
+                </label>
 
-            <div>  
-                {this.state.uploads.map((value, index) => {
-                    return <img key = {index} src = {value}width = "100px" / >
-                })
-            } 
-            </div>
+                <div > {
+                    this.state.uploads.map((value, index) => {
+                        return <img key = { index }
+                        src = { value }
+                        width = "100px" / >
+                    })
+                } </div>
 
-            < button onClick = {this.generateText} className = "button" >
-                 Generate 
-             </button> 
+                <button onClick = { this.generateText } className = "button" >Generate </button>  
             </section >
 
-            { /* Results */ } 
-            
-            <section className = "results" > 
+            { /* Results */ }
 
-            {this.state.documents.map((value, index) => {
-                    return ( 
-                        <div key = {index} className = "results__result" >
+            <section className = "results" >
+
+            {
+                this.state.documents.map((value, index) => {
+                    return (
+                        <div key = { index }className = "results__result" >
                             <div className = "results__result__image" >
-                            <img src = {this.state.uploads[index]} width = "100px" / >
-                        </div> 
+                                <img className ="image" width = "120px" src = { this.state.uploads[index] }/>
+                            </div> 
 
-                        <div className = "results__result__info" >
-                            <div className = "results__result__info__codes" >
-                                <small > 
-                                    < strong > Confidence Score: </strong> 
-                                    {value.confidence}
+                            <div className = "results__result__info" >
+                                <div className = "results__result__info__codes" >
+                                <small >
+                                        <strong className="headerText"> Confidence Score: {value.confidence}</strong> 
+                                         
+                                </small > 
+                                </div> <div className = "results__result__info__text" >
+                                <small >
+                                        <strong className="headerText"> Full Output: </strong>
+                                     <p className="text">{ value.text }</p>
                                 </small >
-                            </div>
-                             <div className = "results__result__info__text" >
-                            <small > 
-                                < strong > Full Output: </strong>
-                                {value.text}
-                            </small >
-                            </div>
-                        </div >
-                    </div>
+                                </div> 
+                            </div >
+                        </div>
                     )
                 })
-            } 
-            </section> 
-            </div>
+            } </section> 
+             </div>
         )
     }
 }

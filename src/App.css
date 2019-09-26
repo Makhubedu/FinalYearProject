@@ -1,80 +1,112 @@
-.app {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: space-between;
-    justify-items: center;
-}
-
-.header {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    justify-self: stretch;
-    align-self: start;
-    text-align: center;
-    padding: 24px;
-    color: #97358a;
-}
-
-.hero {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    padding: 16px;
-}
-
-.results {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    padding: 16px;
-}
-
-.results .results__result {
-    display: flex;
-    border-bottom: 1px solid grey;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-}
-
-.button {
-    width: 100%;
-    background: #97358a;
-    border-radius: 4px;
-    padding: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    color: white;
-    font-weight: bold;
-}
-
-.button:hover,
-.button:active {
-    background: #15420a
-}
-
-.fileUploaderContainer {
-    overflow: hidden;
-    display: block;
-    position: relative;
-    color: #777777;
-    padding: 8px;
-    margin-bottom: 8px;
-    border: 3px solid #777777;
-    border-radius: 8px;
-}
-.fileUploaderContainer:hover{
-    background: purple;
-}
-
-.fileUploaderContainer [type=file] {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-height: 100%;
-    min-width: 100%;
-    font-size: 999px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    cursor: pointer;
-}
+        .app {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            justify-content: space-between;
+            justify-items: center;
+            background-repeat: no-repeat;
+        }
+        
+        .header {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            justify-self: stretch;
+            align-self: start;
+            text-align: center;
+            padding: 24px;
+            color: #faf3f9;
+        }
+        
+        .hero {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            padding: 16px;
+        }
+        
+        .results {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            padding: 16px;
+        }
+        
+        .results .results__result {
+            display: flex;
+            border-bottom: 1px solid #e2dcdc;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .button {
+            width: 100%;
+            background: #97358a;
+            border-radius: 4px;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .button:hover,
+        .button:active {
+            background: #a2d1da
+        }
+        
+        .fileUploaderContainer {
+            overflow: hidden;
+            display: block;
+            position: relative;
+            color: #f5efef;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 3px solid #42053f;
+            border-radius: 8px;
+        }
+        
+        .fileUploaderContainer:hover {
+            background: #90e9ce;
+        }
+        
+        .fileUploaderContainer [type=file] {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-height: 100%;
+            min-width: 100%;
+            font-size: 999px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .text {
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .headerText {
+            color: white;
+            font-size: 15px;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .header>h1 {
+                font-size: 20px;
+            }
+            .results {
+                display: flex;
+            }
+            .fileUploaderContainer {
+                overflow: hidden;
+                display: block;
+                position: relative;
+                color: #fdfdfd;
+                padding: 8px;
+                margin-bottom: 8px;
+                border: 3px solid #42053f;
+                border-radius: 8px;
+            }
+        }
