@@ -113,7 +113,7 @@ class App extends Component {
                     return ( 
                         <div key = {index} className = "results__result" >
                             <div className = "results__result__image" >
-                            <img src = {this.state.uploads[index]} width = "250px" / >
+                            <img src = {this.state.uploads[index]} width = "100px" / >
                         </div> 
 
                         <div className = "results__result__info" >
