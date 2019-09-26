@@ -81,7 +81,7 @@ class App extends Component {
             
             <div className = "app" >
                 <header className = "header" >
-                    <h1 > NWU - IMAGE-TEXT(Derrick) </h1>
+                    <h1 > NWU - IMAGE-TEXT(Tswelelo Marule) </h1>
                 </header>
 
             { /*This will take place when the user uploads a picture*/ } 
